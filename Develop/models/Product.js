@@ -6,6 +6,13 @@ const sequelize = require('../config/connection');
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
 
+
+const Category = require('./Category');
+
+const Tag = require('./Tag');
+
+const ProductTag = require('./ProductTag');
+
 // set up fields and rules for Product model
 Product.init(
   {
@@ -47,5 +54,19 @@ Product.init(
     modelName: 'product',
   }
 );
+
+//associations
+Product.belongsTo(Category, {
+  foreignKey: 'category_id',
+});
+
+Product.belongsToMany(Tag, {
+  through: ProductTag,
+  foreignKey: 'product_id',
+});
+
+Product.hasMany(ProductTag, {
+  foreignKey: 'product_id',
+});
 
 module.exports = Product;

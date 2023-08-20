@@ -4,6 +4,10 @@ const sequelize = require('../config/connection');
 
 class ProductTag extends Model {}
 
+const Product = require('./Product');
+
+const Tag = require('./Tag');
+
 ProductTag.init(
   {
     id: {
@@ -35,5 +39,13 @@ ProductTag.init(
     modelName: 'product_tag',
   }
 );
+
+ProductTag.belongsTo(Product, {
+  foreignKey: 'product_id',
+});
+
+ProductTag.belongsTo(Tag, {
+  foreignKey: 'tag_id',
+});
 
 module.exports = ProductTag;
