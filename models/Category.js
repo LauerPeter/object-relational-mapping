@@ -2,11 +2,9 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection.js');
-const Product = require('./Product');
+const Product = require('./Product').default;
 
-class Category extends Model {
-  
-}
+class Category extends Model {}
 
 Category.init(
   {
@@ -30,10 +28,5 @@ Category.init(
   }
 );
 
-
-//association
-Category.hasMany(Product, {
-  foreignKey: 'category_id',
-});
 
 module.exports = Category;

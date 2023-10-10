@@ -3,10 +3,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const Category = require('./Category');
+const Tag = require('./Tag');
+const ProductTag = require ('./ProductTag')
 
-class Product extends Model {
-  // Model properties
-  static attributes = {
+class Product extends Model {}
+
+Product.init(
+  {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -39,29 +42,15 @@ class Product extends Model {
         key: 'id',
       },
     },
-  };
-
-  // Model methods
-  static associate(models) {
-    this.belongsTo(models.Category, {
-      foreignKey: 'category_id',
-    });
-    this.belongsToMany(models.Tag, {
-      through: models.ProductTag,
-      foreignKey: 'product_id',
-    });
-    this.hasMany(models.ProductTag, {
-      foreignKey: 'product_id',
-    });
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'product',
   }
-}
+);
 
-Product.init(Product.attributes, {
-  sequelize,
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'product',
-});
 
 module.exports = Product;

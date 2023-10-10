@@ -2,12 +2,13 @@
 
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const Product = require('./Product');
-const Tag = require('./Tag');
+const Product = require('./Product').default;
+const Tag = require('./Tag').default;
 
-class ProductTag extends Model {
-  // Model properties
-  static attributes = {
+class ProductTag extends Model {}
+
+ProductTag.init(
+  {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,25 +29,15 @@ class ProductTag extends Model {
         key: 'id',
       },
     },
-  };
-
-  // Model methods
-  static associate(models) {
-    this.belongsTo(models.Product, {
-      foreignKey: 'product_id',
-    });
-    this.belongsTo(models.Tag, {
-      foreignKey: 'tag_id',
-    });
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'product_tag',
   }
-}
+);
 
-ProductTag.init(ProductTag.attributes, {
-  sequelize,
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: 'product_tag',
-});
 
 module.exports = ProductTag;
