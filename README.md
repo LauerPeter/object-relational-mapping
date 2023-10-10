@@ -1,46 +1,68 @@
-# object-relational-mapping
+# Title
 
-This application is currently not developed.
+
+
+
+
 
 ## Description
 
-Having issues with running npm start ---- sequalize error ----------- 
-
-throw new Error(`${source.name}.${_.lowerFirst(Type.name)} called with something that's not a subclass of Sequelize.Model`);
-
-Error: product_tag.belongsTo called with something that's not a subclass of Sequelize.Model
 
 
-## Video Walkthrough
 
 
-Unavailable
+
+## Features
 
 
-### Dependencies
 
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mysql2": "^2.1.0",
-    "sequelize": "^5.21.7"
 
-### Installing
 
-git clone <ssh copy/paste>
 
-npm i
+## Usage
 
-### Executing program
 
-npm start
 
--Please be sure to add your own user and password info for mysql2 in the connector folder to the db.js file
 
-## Authors
 
-Peter Lauer
+
+## Technologies
+
+
+
+
+
+
+## Installation
+
+
+
+
 
 
 ## License
 
-MIT
+
+
+
+
+
+## links
+
+- There are no links to this project
+
+## Video
+
+- Catagory routes
+
+https://github.com/LauerPeter/object-relational-mapping/assets/135652706/909631a1-0fa9-4605-996f-0c156c4c7f73
+
+- Product routes
+
+https://github.com/LauerPeter/object-relational-mapping/assets/135652706/73951754-4d57-4e71-9d57-ee5dada2d2f4
+
+- Tag routes
+
+https://github.com/LauerPeter/object-relational-mapping/assets/135652706/dfb986a5-9650-43e4-aabd-d8d2c18bdc26
+
+
